@@ -7,12 +7,14 @@ pipeline {
     }
 
     environment {
-        NEXUS_VERSION = "nexus3"
-        NEXUS_PROTOCOL = "http"
+        SNAP_REPO = "vprofile-snapshot"
+        NEXUS_CRED = credentials('nexuslogin')
+        NEXUS_USER = ${NEXUS_CRED_USR}
+        NEXUS_PASS = ${NEXUS_CRED_PSW}
+        RELEASE_REPO = "vprofile-release"
+        CENTRAL_REPO = "vprofile-maven-central"
+        NEXUS_GRP_REPO = "vprofile-maven-group"
         NEXUS_URL = "172.31.10.59:8081"
-        NEXUS_REPOSITORY = "vprofile-release"
-	    NEXUS_REPOGRP_ID    = "vprofile-maven-group"
-        NEXUS_CREDENTIAL_ID = "nexuslogin"
         ARTVERSION = "${env.BUILD_ID}"
     }
 	
@@ -20,7 +22,7 @@ pipeline {
         
         stage('BUILD'){
             steps {
-                sh 'mvn clean install -DskipTests'
+                sh 'mvn -s settings.xml clean install -DskipTests'
             }
             post {
                 success {
