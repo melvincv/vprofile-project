@@ -1,3 +1,4 @@
+#!/bin/bash
 TOMURL="https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.37/bin/apache-tomcat-8.5.37.tar.gz"
 yum install java-1.8.0-openjdk -y
 yum install git maven wget -y
@@ -11,7 +12,7 @@ chown -R tomcat.tomcat /usr/local/tomcat8
 
 rm -rf /etc/systemd/system/tomcat.service
 
-cat <<EOT>> /etc/systemd/system/tomcat.service
+cat <<EOF > /etc/systemd/system/tomcat.service
 [Unit]
 Description=Tomcat
 After=network.target
@@ -29,7 +30,7 @@ SyslogIdentifier=tomcat-%i
 
 [Install]
 WantedBy=multi-user.target
-EOT
+EOF
 
 systemctl daemon-reload
 systemctl start tomcat
