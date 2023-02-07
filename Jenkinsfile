@@ -26,17 +26,16 @@ pipeline {
             }
             post {
                 success {
-                    echo 'Now Archiving...'
                     archiveArtifacts artifacts: '**/target/*.war'
                 }
             }
         }
 
-	// stage('UNIT TEST'){
-    //         steps {
-    //             sh 'mvn test'
-    //         }
-    //     }
+        stage('UNIT TEST'){
+                steps {
+                    sh 'mvn test'
+                }
+            }
 
 	// stage('INTEGRATION TEST'){
     //         steps {
@@ -44,16 +43,11 @@ pipeline {
     //         }
     //     }
 		
-    //     stage ('CODE ANALYSIS WITH CHECKSTYLE'){
-    //         steps {
-    //             sh 'mvn checkstyle:checkstyle'
-    //         }
-    //         post {
-    //             success {
-    //                 echo 'Generated Analysis Result'
-    //             }
-    //         }
-    //     }
+        stage ('CODE ANALYSIS: CHECKSTYLE'){
+            steps {
+                sh 'mvn checkstyle:checkstyle'
+            }
+        }
 
     //     stage('CODE ANALYSIS with SONARQUBE') {
           
