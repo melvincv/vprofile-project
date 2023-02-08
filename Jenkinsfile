@@ -80,7 +80,7 @@ pipeline {
                     protocol: 'http',
                     nexusUrl: $NEXUS_URL,
                     groupId: 'QA',
-                    version: ${env.BUILD_ID}-${env.BUIULD_TIMESTAMP},
+                    version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
                     repository: $RELEASE_REPO,
                     credentialsId: 'nexuslogin',
                     artifacts: [
