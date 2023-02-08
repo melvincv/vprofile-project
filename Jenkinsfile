@@ -78,10 +78,10 @@ pipeline {
                 nexusArtifactUploader(
                     nexusVersion: 'nexus3',
                     protocol: 'http',
-                    nexusUrl: $NEXUS_URL,
+                    nexusUrl: NEXUS_URL,
                     groupId: 'QA',
                     version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
-                    repository: $RELEASE_REPO,
+                    repository: RELEASE_REPO,
                     credentialsId: 'nexuslogin',
                     artifacts: [
                         [artifactId: vproapp,
