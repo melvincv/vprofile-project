@@ -84,7 +84,7 @@ pipeline {
                     repository: RELEASE_REPO,
                     credentialsId: 'nexuslogin',
                     artifacts: [
-                        [artifactId: vproapp,
+                        [artifactId: 'vproapp',
                         classifier: '',
                         file: 'target/vprofile-v2.war',
                         type: 'war']
