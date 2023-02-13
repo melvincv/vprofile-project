@@ -102,12 +102,14 @@ pipeline {
 
         stage('Build App Image') {
             steps {
-                dockerImage = docker.build(appRegistry + "$BUILD_NUMBER", "./Docker-files/app/multistage/")
+                script {
+                    dockerImage = docker.build(appRegistry + "$BUILD_NUMBER", "./Docker-files/app/multistage/")
+                }
             }
         }
 
         stage('Upload App Image') {
-          steps{
+          steps {
             script {
               docker.withRegistry( vprofileRegistry, registryCredential ) {
                 dockerImage.push("$BUILD_NUMBER")
