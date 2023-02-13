@@ -19,7 +19,7 @@ pipeline {
         RELEASE_REPO = "vprofile-release"
         CENTRAL_REPO = "vprofile-maven-central"
         NEXUS_GRP_REPO = "vprofile-maven-group"
-        NEXUS_URL = "172.31.10.59:8081"
+        NEXUS_URL = "172.31.12.242:8081"
         ARTVERSION = "${env.BUILD_ID}"
     }
 	
