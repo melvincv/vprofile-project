@@ -28,8 +28,8 @@
 
   <mirrors>
     <mirror>
-      <id>${NEXUS_GRP_REPO}</id>
-      <name>${NEXUS_GRP_REPO}</name>
+      <id>${CENTRAL_REPO}</id>
+      <name>${CENTRAL_REPO}</name>
       <url>http://${NEXUS_URL}/repository/${NEXUS_GRP_REPO}/</url>
       <mirrorOf>*</mirrorOf>
     </mirror>
