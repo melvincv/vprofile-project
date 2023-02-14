@@ -19,7 +19,7 @@ pipeline {
         RELEASE_REPO = "vprofile-release"
         CENTRAL_REPO = "vprofile-maven-central"
         NEXUS_GRP_REPO = "vprofile-maven-group"
-        NEXUS_URL = "172.31.12.242:8081"
+        NEXUS_URL = "172.31.7.1:8081"
         registryCredential = 'ecr:us-east-1:my-aws-creds'
         appRegistry = '221968583774.dkr.ecr.us-east-1.amazonaws.com/vprofile-app'
         vprofileRegistry = "https://221968583774.dkr.ecr.us-east-1.amazonaws.com"
